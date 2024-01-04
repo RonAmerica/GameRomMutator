@@ -200,6 +200,7 @@ void mutate(char*s){
   opt.begin=fl*.01*opt.pBegin;
  }
 
+<<<<<<< HEAD
  if(opt.pEnd!=0.0f){
   opt.end=fl*.01*opt.pEnd;
  }
@@ -209,6 +210,13 @@ void mutate(char*s){
  }
 
  bytes=opt.end-opt.begin;
+=======
+ if(opt.pEnd>0.0f){
+  opt.end=fl*.01*opt.pEnd;
+ }
+
+ bytes=(opt.end?opt.end:fl)-opt.begin;
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
  if(opt.count>0.0f){
   if(bytes)opt.rate=opt.count/bytes;
@@ -228,11 +236,19 @@ void mutate(char*s){
   if(opt.end && opt.end<opt.begin)warn("Ends before start!");
   if(opt.end && opt.end==opt.begin)warn("Zero byte range!");
   if(opt.begin>=fl)warn("Starts mutating after end of file!");
+<<<<<<< HEAD
   if(opt.end>fl)warn("Set to end after end of file!");
   if(opt.rate<0.0f)warn("Mutation rate is negative!");
   else if(opt.rate==0.0f)warn("Mutation rate is zero!");
   if(bytes*opt.rate>=40)warn("Mutation rate is way too high!");
   else if(bytes*opt.rate>=10)warn("Mutation rate is dangerously high!");
+=======
+  if(opt.end>=fl)warn("Set to end after end of file!");
+  if(opt.rate<0.0f)warn("Mutation rate is negative!");
+  if(opt.rate==0.0f)warn("Mutation rate is zero!");
+  if(opt.rate>=0.001f)warn("Mutation rate is dangerously high!");
+  if(opt.rate>=0.01f)warn("Mutation rate is too high!");
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
   if(bytes<=0)warn("No bytes to be mutated!");
   chkExt(name);
  }
@@ -248,7 +264,11 @@ void mutate(char*s){
   if(k==EOF)break;
   for(f=1;f<opt.num;++f){
    c=k;
+<<<<<<< HEAD
    if(x>=opt.begin && x<opt.end && drand48()<opt.rate){
+=======
+   if(x>=opt.begin && (!opt.end || x<opt.end) && drand48()<opt.rate){
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
     ++mc[f];
     if(1&rand())c=rand();
     else c+=2*(1&rand())-1;
@@ -284,7 +304,11 @@ void showHelp(){
   "-n number of mutated roms to create\n"
   "-b at which byte to begin mutating\n"
   "-B location as percent to begin mutating, overrides -b\n"
+<<<<<<< HEAD
   "-e at which byte to end mutating, <=0 from end of file\n"
+=======
+  "-e at which byte to end mutating, 0 for end of file\n"
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
   "-E location as percent to end mutating, overrides -e\n"
   "-v set verbosity 1 or 0\n"
   "-r rate of mutation e.g. 0.0001\n"
@@ -299,29 +323,42 @@ __attribute__((cold))
 bool parseArg(char*a,char*b){
  int i=0;
  float f=0;
+<<<<<<< HEAD
  bool r=1;
+=======
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
  if(a[0]!='-'){
   if(doWork)mutate(a);
   return 0;
  }
  switch(a[1]){
+<<<<<<< HEAD
   case 0:
+=======
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
   case 'h':
   case '?':
   showHelp();
   die(0);
  }
+<<<<<<< HEAD
  if(a[2]){
   b=&a[2];
   if(*b=='=')++b;
   r=0;
  }
  if(doWork)goto Done;
+=======
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
  if(b){
   i=atoi(b);
   f=atof(b);
  }else die("No parameter given for option");
+<<<<<<< HEAD
  switch(a[1]){
+=======
+ if(!doWork)switch(a[1]){
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
   case 'n':
   ++i;
@@ -358,6 +395,7 @@ bool parseArg(char*a,char*b){
   break;
 
   case 'a':
+<<<<<<< HEAD
   opt.append=b;
   break;
 
@@ -369,6 +407,13 @@ bool parseArg(char*a,char*b){
  }
  Done:
  return r;
+=======
+  opt.append=strdup(b);
+  break;
+
+ }
+ return 1;
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 }
 
 

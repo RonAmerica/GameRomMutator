@@ -7,9 +7,15 @@
 <style>
 
 body{font:16pt sans-serif;background-color:black;color:white}
+<<<<<<< HEAD
 h1,h2,h3,h4,h5{margin-bottom:0}
 p{margin:0 0 4vh 0}
 .fine{font:12pt arial}
+=======
+.fine{font:12pt arial}
+h1,h2,h3,h4,h5{margin-bottom:0}
+p{margin:0 0 4vh 0}
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 </style>
 
@@ -78,22 +84,38 @@ p{margin:0 0 4vh 0}
 
 <h4>Rate</h4>
 
+<<<<<<< HEAD
 <p>If the rate is 1 or greater, it is used as the average count of mutations per rom. If rate is less than 1, it is the chance of any particular byte being mutated. Typical values are 5 or 0.0001. In verbose mode, the program warns you about extreme values. Having too many mutations will reduce the number of usable roms, as every rom will have harmful mutations, so any good mutations will tend to be lost.
+=======
+If the rate is 1 or greater, it is used as the average count of mutations per rom. If rate is less than 1, it is the chance of any particular byte being mutated. Typical values are 5 or 0.0001. In verbose mode, the program warns you about extreme values. Having too many mutations will reduce the number of usable roms, as every rom will have harmful mutations, so any good mutations will tend to be lost.
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 
 <h4>Start at</h4>
 
+<<<<<<< HEAD
 <p>Specify an integer byte number to start mutating at, or include the % symbol to specify a percent location in the file, where 0.0% is the start of the file and 100.0% is the end. Along with "End at," this allows you to control which part of the rom is mutated, because some roms might be more apt to crash if mutated at the beginning, or perhaps you only want to mutate the graphics.
+=======
+Specify an integer byte number to start mutating at, or include the % symbol to specify a percent location in the file, where 0.0% is the start of the file and 100.0% is the end. Along with "End at," this allows you to control which part of the rom is mutated, because some roms might be more apt to crash if mutated at the beginning, or perhaps you only want to mutate the graphics.
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 
 <h4>End at</h4>
 
+<<<<<<< HEAD
 <p>Specify an integer byte number to end mutating at, or include the % symbol to specify a percent location in the file, where 0.0% is the start of the file and 100.0% is the end. Specify an integer or percent equal to or less than zero to measure from the end of the file.
+=======
+Specify an integer byte number to end mutating at, or include the % symbol to specify a percent location in the file, where 0.0% is the start of the file and 100.0% is the end.
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 
 <h4>Create</h4>
 
+<<<<<<< HEAD
 <p>Specify an integer number of mutated roms to generate.
+=======
+Specify an integer number of mutated roms to generate.
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 
 <h2>Command Line Usage</h2>
@@ -102,7 +124,11 @@ p{margin:0 0 4vh 0}
 -n number of mutated roms to create
 -b at which byte to begin mutating
 -B location as percent to begin mutating, overrides -b
+<<<<<<< HEAD
 -e at which byte to end mutating, <=0 from end of file
+=======
+-e at which byte to end mutating, 0 for end of file
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 -E location as percent to end mutating, overrides -e
 -v set verbosity 1 or 0
 -r rate of mutation e.g. 0.0001
@@ -131,11 +157,16 @@ to create 20 mutated copies of smb.nes with a mutation rate of 0.001 with mutati
 
 <p>This software has been tested and used for hours by an experienced developer and seems to be good, solid software that will not malfunction or misbehave in any harmful way, but you agree not to sue if it somehow causes some sort of problem. As developers, we should always try to make sure we release good, safe software, but there can be no warranty for free software, so everyone should try to choose trustworthy developers where possible and examine the code for oneself. Always back up your important files.
 
+<<<<<<< HEAD
 <p>Mutations could prevent some roms from working on actual hardware due to the use of checksums, even if they work in emulators. I think many Sega Genesis games employ checksums. Do a bit of research before spending your time or money putting a mutated rom on an actual hardware cartridge. You might be able to fix the problem by changing the checksum to an appropriate value. Yes, it appears there are programs out there that can fix the checksum for you. Maybe someday we'll make this program detect the use of a checksum and fix it for users.
+=======
+<p>Mutations could prevent some roms from working on actual hardware due to the use of checksums, even if they work in emulators. I think Sega Genesis employed checksums. Do a bit of research before spending your time or money putting a mutated rom on an actual hardware cartridge. You might be able to fix the problem by changing the checksum to an appropriate value. Yes, it appears there are programs out there that can fix the checksum for you. Maybe someday we'll make this program detect the use of a checksum and fix it for users.
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 
 </div>
 
 
+<<<<<<< HEAD
 <h2>Links</h2>
 
 <p><a href="https://github.com/RonAmerica/GameRomMutator">Project homepage on github.com</a>
@@ -143,6 +174,8 @@ to create 20 mutated copies of smb.nes with a mutation rate of 0.001 with mutati
 <p>View the <a href="LICENSE">LICENSE</a> file. This software is released on the MIT license.
 
 
+=======
+>>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
 <p>It's another awesome creation of W R "Ron" Spain Jr.
 
 <p><a href=/>Home</a>
