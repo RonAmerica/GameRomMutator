@@ -29,22 +29,14 @@ def go():
 
  v=begin.get()
  if v!="":
-<<<<<<< HEAD
   if v.find('%')>=0:
-=======
-  if v.find('%'):
->>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
    s+=" -B "+v.replace("%","")
   else:
    s+=" -b "+v
 
  v=end.get()
  if v!="":
-<<<<<<< HEAD
   if v.find('%')>=0:
-=======
-  if v.find('%'):
->>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
    s+=" -E "+v.replace("%","")
   else:
    s+=" -e "+v
@@ -125,8 +117,8 @@ go.grid(row=5,column=2)
 
 rom.insert(0,rompath);
 rate.insert(0,"5.0");
-begin.insert(0,"1%");
-end.insert(0,"99%");
+begin.insert(0,"0%");
+end.insert(0,"100%");
 num.insert(0,"8");
 c1.select();
 

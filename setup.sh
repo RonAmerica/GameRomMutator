@@ -4,10 +4,21 @@ echo
 echo "Game Rom Mutator Setup"
 
 
-compile () {
- echo "Compiling..."
- gcc mutate.c -o mutate -Os -Wall -Wextra -fomit-frame-pointer
- ls -l mutate
+compile() {
+ f=$1
+ shift
+ gcc "$f.c" -o "$f" "$@" -lm -s -O2 -Wall \
+	-fweb -fomit-frame-pointer -fwhole-program \
+	-fmerge-all-constants
+ strip -s -R .comment "$f"
+ ls -l "$f"
+}
+
+
+compileAll() {
+ compile mutate
+ compile romdiff
+ compile romedit
 }
 
 
@@ -33,10 +44,7 @@ do
  echo "c Compile via GCC"
  echo "r Run the GUI"
  echo "h Show help file"
-<<<<<<< HEAD
  echo "w Visit website"
-=======
->>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
  echo "q Quit"
 
  read -n 1 -p "?" i
@@ -44,13 +52,10 @@ do
 
  case $i in
   i) update ;;
-  c) compile ;;
+  c) compileAll ;;
   r) run ;;
   h) xdg-open doc.htm ;;
-<<<<<<< HEAD
   w) xdg-open "https://github.com/RonAmerica/GameRomMutator" ;;
-=======
->>>>>>> ef57c379e499d352f654e9253b5df619f3f10a9e
   q) break ;;
   *) echo "Bad user!" ;;
  esac
